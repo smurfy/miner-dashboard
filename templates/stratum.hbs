@@ -8,11 +8,18 @@
     <div class="panel-body">
         {{#if devices}}
             <h4>Workers on {{ pool }}</h4>
+
             {{#each devices}}
                 <div class="row overview" id="{{id}}">
+                
+                    <div class="hashrate col-xs-12 col-md-3">
+                        <div class="graph"></div>
+                        <strong>Current Hashrate: {{hashrate rate}}</strong>
+                    </div>
+                
                     <div class="col-xs-12 col-md-3">
                         <table class="table table-bordered">
-                            <tr><td>Name</td><td class="{{#if connected}}success{{else}}danger{{/if}}">{{id}}</td></tr>
+                            <tr><td>Name</td><td class="{{#if connected}}success{{else}}danger{{/if}}">{{name}}</td></tr>
                             <tr><td>Active</td><td>{{#if connected}}Yes{{else}}No{{/if}}</td></tr>
                             <tr><td>Uptime</td><td>{{timespan uptime}}</td></tr>
                             <tr><td>Software</td><td>{{software}}</td></tr>
@@ -29,7 +36,8 @@
                     <div class="col-xs-12 col-md-3">
                         <table class="table table-bordered">
                             <tr><td>Difficulty</td><td>{{number difficulty}}</td></tr>
-                            <tr><td>Rate</td><td>{{number rate}}</td></tr>
+                            <tr><td>Last Share Submitted</td><td>{{#if lastShare}}{{time lastShare}}{{else}}Never{{/if}}</td></tr>
+                            <tr><td>Rate</td><td>{{hashrate rate}}</td></tr>
                         </table>
                     </div>
                 </div>
