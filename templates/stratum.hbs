@@ -18,8 +18,8 @@
                     <div class="col-xs-12 col-md-3">
                         <table class="table table-bordered">
                             <tr><td>Name</td><td class="{{#if connected}}success{{else}}danger{{/if}}">{{name}}</td></tr>
-                            <tr><td>Active</td><td>{{#if connected}}Yes{{else}}No{{/if}}</td></tr>
-                            <tr><td>Uptime</td><td>{{timespan uptime}}</td></tr>
+                            <tr><td>Active</td><td>{{#if connected}}{{timespan uptime}}{{else}}No{{/if}}</td></tr>
+                            <tr><td>Reconnects</td><td>Pool: {{poolReconnects}} Miner: {{minerReconnects}}</td></tr>
                             <tr><td>Software</td><td>{{software}}</td></tr>
                         </table>
                     </div>
@@ -28,7 +28,7 @@
                             <tr><td>Accepted Shares</td><td>{{number accepted}}</td></tr>
                             <tr><td>Rejected Shares</td><td>{{number rejected}} ({{number rejectedPercentage precision="2"}}%)</td></tr>
                             <tr><td>Stale Shares</td><td>{{number stale}} ({{number stalePercentage precision="2"}}%)</td></tr>
-                            <tr><td>Submitted Shares</td><td>{{number submitted}}</td></tr>
+                            <tr><td>Submitted Shares</td><td>{{number submitted}}{{#if pending}} ({{number pending}}){{/if}}</td></tr>
                         </table>
                     </div>
                     <div class="col-xs-12 col-md-3">
